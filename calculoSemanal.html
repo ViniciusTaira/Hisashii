@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de dinheiro Semanal</title>
+    <style>
+        .container {
+  background: rgb(218, 218, 218);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+      body {
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;   /* deixa em pé */
+  justify-content: center;  /* centraliza vertical */
+  align-items: center;      /* centraliza horizontal */
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background-color: rgb(243, 138, 52);
+}
+h2 {
+    font-size: 25px;
+    color:black;
+    font-weight: bold;
+    margin: 30px 0;
+    border:1px solid black;
+}
+* {
+    box-sizing: border-box;
+}
+input {
+    font-size: large;
+    padding: 8px;
+    border: 2px solid black;
+}
+button {
+    cursor: pointer6;
+    padding: 10px 40px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+    </style>
+</head>  
+
+<body>
+    <div class="container">
+       <h2> Cálculo de dinheiro Semanal   </h2><br/>
+       <label for="salario">Salário por hora:</label> <br/>
+       <input type="number" id="salario" name="salario"><br/><br/>
+    
+       <label for="Segunda">Horas trabalhadas por Segunda:</label>
+       <input type="number" id="segunda" name="Segunda"><br/><br/>
+       <label for="Terça">Horas trabalhadas por Terça:</label>
+       <input type="number" id="terca" name="Terça"><br/><br/>
+       <label for="Quarta">Horas trabalhadas por Quarta:</label>
+       <input type="number" id="quarta" name="Quarta"><br/><br/>
+       <label for="Quinta">Horas trabalhadas por Quinta:</label>
+       <input type="number" id="quinta" name="Quinta"><br/><br/>
+       <label for="Sexta">Horas trabalhadas por Sexta:</label>
+       <input type="number" id="sexta" name="Sexta"><br/><br/>
+       <label for="Sábado">Horas trabalhadas por Sábado:</label>
+       <input type="number" id="sabado" name="Sábado"><br/><br/>
+       <label for="Domingo">Horas trabalhadas por Domingo:</label>
+       <input type="number" id="domingo" name="Domingo"><br/><br/>
+    
+      <button id="btnCalcular">Calcular Salário Semanal</button>
+      <p id="resultado"></p>
+    </div>
+
+    <script>
+    function calcular () {
+            let salario = parseFloat(document.getElementById("salario").value) || 0;
+
+            let totalHoras =
+                (parseFloat(document.getElementById("segunda").value) || 0) +
+                (parseFloat(document.getElementById("terca").value) ||0) +
+                (parseFloat(document.getElementById("quarta").value) ||0) +
+                (parseFloat(document.getElementById("quinta").value) ||0) +
+                (parseFloat(document.getElementById("sexta").value) ||0) +
+                (parseFloat(document.getElementById("sabado").value) ||0) +
+                (parseFloat(document.getElementById("domingo").value) ||0);
+            let salarioSemanal = salario * totalHoras;
+            
+            document.getElementById("resultado").innerHTML =
+            `Total de horas: ${totalHoras} <br>
+            Salário semanal: R$ ${salarioSemanal.toFixed(2)}`;
+        }
+        document.getElementById("btnCalcular").addEventListener("click", calcular);
+          addEventListener("click", calcular);
+    </script>
+</body>
+</html>
